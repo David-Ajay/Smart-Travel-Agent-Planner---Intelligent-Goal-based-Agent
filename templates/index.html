@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Smart Travel Agent Planner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Travel Agent Planner</h1>
+        <p>This project plans group travel rides for students using vehicle availability and optimized routes.</p>
+        <p>Using the students' locations and vehicles (car,bike), it generates vehicle pickup routes that maximize group travel and choose efficient paths.</p>
+
+        <div class="footer-table">
+            <table>
+                <tr><td>Nalla D Ajay</td><td>1601-23-771-119</td></tr>
+            </table>
+        </div>
+        <button onclick="window.location.href='/destination'" class="big-button">Start Planning</button>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

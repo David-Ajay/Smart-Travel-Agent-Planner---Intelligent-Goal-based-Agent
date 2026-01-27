@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Trip Plan Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <h2>Trip Plan Results</h2>
+
+        <p><b>Start first:</b> {{ first.driver_name }} ({{ first.vehicle_type }})</p>
+
+        {% for r in results %}
+        <div class="result-group">
+            <h3>{{r.vehicle_type}} group - Driver: {{r.driver_name}}</h3>
+            <p><b>Pickup sequence:</b> {{ r.group_names | join(', ') }}</p>
+            <p>Distance: {{ r.distance }} km, Estimated travel time: {{ r.eta_min }} minutes</p>
+            <p>Start at: {{ r.start_time }}</p>
+            <p><a href="{{ r.maps_url }}" target="_blank">Open route in Google Maps</a></p>
+        </div>
+        {% endfor %}
+
+        <button onclick="window.location.href='/'" class="big-button">Start Over</button>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

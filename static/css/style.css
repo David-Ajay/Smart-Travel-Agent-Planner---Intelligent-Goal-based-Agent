@@ -1,0 +1,314 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=DotGothic16&display=swap');
+
+:root {
+  --bg: #0b0b0b;
+  --surface: #141414;
+  --text: #f5f5f5;
+  --muted: #9b9b9b;
+  --accent: #ff1a1a;
+  --line: rgba(255,255,255,0.08);
+  --radius: 12px;
+  --space: 18px;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-heading: 'DotGothic16', monospace;
+}
+
+/* Body & container */
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 650px;
+  margin: 50px auto;
+  background: var(--surface);
+  padding: 36px 42px;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  border: 1px solid var(--line);
+}
+
+/* Headings */
+h1, h2 {
+  text-align: center;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+h1 { font-family: var(--font-heading); font-size: 2.6em; font-weight: 600; }
+h2 { font-family: var(--font-heading); font-size: 1.8em; font-weight: 600; }
+
+/* Paragraphs */
+p { font-weight: 400; font-size: 1em; color: var(--muted); }
+
+/* Footer table */
+.footer-table table { width: 100%; border-collapse: collapse; margin-top: 50px; }
+.footer-table td { padding: 6px 8px; font-size: 0.95em; color: var(--muted); }
+
+/* Buttons */
+.big-button {
+  display: block;
+  width: 100%;
+  background: var(--accent);
+  border: none;
+  padding: 16px 10px;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 40px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.big-button:hover {
+  background: #e00000;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(255,26,26,0.3);
+}
+
+/* Labels & Inputs */
+label { display: block; margin-top: 12px; font-size: 1em; color: var(--text); cursor: pointer; font-weight:500; }
+select, input[type="time"] {
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 8px;
+  font-size: 1.05em;
+  background: #1b1b1b;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  outline: none;
+  transition: border 0.2s ease;
+}
+select:focus, input[type="time"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(255,26,26,0.2);
+}
+
+/* Checkboxes */
+.checkbox-label { display:flex; align-items:center; margin:8px 0; cursor:pointer; font-size:1.05em; color: var(--text); font-weight:500; }
+.checkbox-label input[type="checkbox"] { appearance:none; width:20px; height:20px; border-radius:4px; border:1px solid var(--muted); margin-right:12px; position:relative; background:transparent; }
+.checkbox-label input[type="checkbox"]:checked { border-color: var(--accent); background: var(--accent); }
+.checkbox-label input[type="checkbox"]:checked::after { content:"✔"; position:absolute; color:#fff; font-size:14px; left:3px; top:0px; }
+
+/* Loading popup box styling */
+.loading-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  margin-left: -70px;
+  margin-top: -70px;
+  background: #121212;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 59, 48, 0.7);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Nunito', sans-serif;
+  color: #FF3B30;
+  user-select: none;
+  z-index: 10000;
+  pointer-events: none;
+  text-align: center;
+}
+
+/* This forces container to be flex in column direction */
+.loading-popup > p {
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 1.05em;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  width: 100%;
+}
+
+/* Loader circles */
+.loader-svg {
+  width: 80px;
+  height: 80px;
+}
+
+.loader-circle-bg {
+  fill: none;
+  stroke: #263238;
+  stroke-width: 6;
+  opacity: 0.3;
+}
+
+.loader-circle {
+  fill: none;
+  stroke: #FF3B30;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 125.6;
+  stroke-dashoffset: 125.6;
+  animation: dash 1.8s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+
+@keyframes dash {
+  0% { stroke-dashoffset:125.6; transform:rotate(0deg); }
+  50% { stroke-dashoffset:31.4; transform:rotate(180deg); }
+  100% { stroke-dashoffset:125.6; transform:rotate(360deg); }
+}
+
+/* Results */
+.result-group {
+  background: #111;
+  padding: 20px;
+  border-radius: var(--radius);
+  margin-bottom: 25px;
+  border:1px solid var(--line);
+}
+.result-group h3 { font-family:var(--font-heading); color:var(--accent); margin-top:0; }
+.result-group p, .result-group a { font-size:1em; color:var(--text); }
+.result-group a { color:var(--accent); text-decoration:none; }
+.result-group a:hover { text-decoration:underline; }
+
+/* Ripple effect */
+button, a { position:relative; overflow:hidden; }
+.ripple {
+  position:absolute;
+  border-radius:50%;
+  background: rgba(255,0,0,0.4);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events:none;
+  width:100px;
+  height:100px;
+}
+@keyframes ripple { to { transform: scale(4); opacity:0; } }
+
+/* ---------- Watch Face Styling ---------- */
+.watch-face-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
+  gap: 12px;
+}
+
+/* ---------- Watch Face Styling (adjusted) ---------- */
+.watch-face {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border: 4px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 4px 12px rgba(255, 26, 26, 0.15);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* center anchor (created by JS) — zero-size element exactly at center */
+.watch-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* hands are positioned relative to .watch-center:
+   left:0 top:0 means their left edge is exactly at the center pixel */
+.hand {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 3px;
+  background: var(--accent);
+  transform-origin: 0 50%;    /* pivot at the left end */
+  transform: rotate(0deg);
+  border-radius: 2px;
+  transition: transform 0.08s linear;
+  z-index: 2;
+}
+
+.hand.hour {
+  height: 4px;
+  width: 35%;
+  background: var(--accent);
+}
+
+/* center dot sits at the center anchor too */
+.center-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.watch-display {
+  font-family: var(--font-heading);
+  font-size: 2em;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  margin-top: 6px;
+  user-select: none;
+}
+
+/* Hand hover effect for visual feedback */
+.watch-face:hover .hand {
+  box-shadow: 0 0 6px var(--accent);
+  transition: box-shadow 0.1s;
+}
+
+/* Prevent text selection while dragging */
+.watch-face, .hand {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* Rotate the clock back so 12 is at top */
+.watch-face {
+  transform: rotate(-90deg); /* counteract previous 90deg tilt */
+}
+
+/* Minute markers around the watch */
+.watch-face::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  top: 0; 
+  left: 0;
+}
+
+/* marker base: place at center then rotate and push outward with translateX */
+.watch-face .marker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 6px;
+  background: var(--line);
+  transform-origin: center center;
+}
+
+.watch-face .marker.quarter {
+  height: 12px;
+  background: var(--accent);
+}

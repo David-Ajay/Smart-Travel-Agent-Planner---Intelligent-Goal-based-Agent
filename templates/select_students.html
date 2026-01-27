@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Select Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <h2>Select Students Joining the Trip</h2>
+        <form id="students-form" method="post">
+            {% for s in students %}
+            <label for="s{{loop.index}}" class="checkbox-label">
+                <input type="checkbox" id="s{{loop.index}}" name="students" value="{{s}}">
+                {{s}}
+            </label><br>
+            {% endfor %}
+            <br>
+            <button type="submit" class="big-button">Plan Trip</button>
+        </form>
+    </div>
+
+    <div id="loading-popup" class="loading-popup" style="display:none;" aria-live="polite" aria-label="Loading">
+      <svg class="loader-svg" viewBox="0 0 50 50" aria-hidden="true">
+        <circle class="loader-circle-bg" cx="25" cy="25" r="20" />
+        <circle class="loader-circle" cx="25" cy="25" r="20" />
+      </svg>
+      <p>Planning your trip...</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

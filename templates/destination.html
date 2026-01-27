@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Select Destination</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <div class="container">
+        <h2>● Select Destination and Arrival Time ●</h2>
+        <form method="post" id="destination-form">
+            <label for="destination">Destination:</label>
+            <select id="destination" name="destination" required>
+                {% for d in destinations %}
+                <option value="{{d}}">{{d}}</option>
+                {% endfor %}
+            </select>
+
+            <label>Desired Arrival Time:</label>
+            <div class="watch-face-container">
+                <div class="watch-face" id="watch-face">
+                    <div class="hand hour" id="hour-hand"></div>
+                    <div class="hand minute" id="minute-hand"></div>
+                    <div class="center-dot"></div>
+                </div>
+                <div class="watch-display">
+                    <span id="display-hours">12</span>:<span id="display-minutes">30</span>
+                </div>
+                <input type="hidden" name="arrival_time" id="arrival_time_hidden">
+            </div>
+
+            <button type="submit" class="big-button">Who are coming?</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
