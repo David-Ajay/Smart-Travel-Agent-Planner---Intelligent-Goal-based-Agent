@@ -1,4 +1,4 @@
-# Smart Travel Agent Planner – Intelligent Goal-Based Agent
+# Smart Travel AI Agent Planner – Intelligent Goal-Based Agent
 
 ## Project Overview
 The Smart Travel Agent Planner is an AI-based system designed to optimize daily travel by intelligently grouping people heading toward the same destination. The system promotes carpooling and bike-sharing while minimizing total travel distance, fuel consumption, and travel time.
